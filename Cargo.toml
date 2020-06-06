@@ -10,3 +10,5 @@ reqwest = { version = "0.10", features = ["json", "blocking"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = {version = "1.0"}
 config = {version = "0.9", features = ["yaml"]}
+bmp085 = "0.1.1"
+i2cdev = {version = "0.3.1"}

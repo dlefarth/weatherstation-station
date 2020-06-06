@@ -24,12 +24,14 @@ fn measure_and_get_queue() -> Vec<Measurement> {
     let queue = queue::get().unwrap();
     println!("queue cotains {:?}", queue);
     measurements.extend(queue);
+
     measurements
 }
 
 fn send_to_server_or_queue(measurements: &Vec<Measurement>, config: &Config) {
     let http_result = server_adapter::send_measurements(&measurements, &config);
     println!("http result: {:?}", &http_result);
+    
     if http_result.is_ok() && http_result.unwrap().status().is_success() {
         println!("sent successful");
         queue::clear().ok();
